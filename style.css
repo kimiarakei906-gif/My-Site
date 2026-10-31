@@ -1,0 +1,224 @@
+ /* ============================================================
+   پورتفولیوی تیره، با رنگ اصلی آبی
+   ============================================================ */
+
+:root {
+  --bg: #08111f;
+  --bg-alt: #0b1628;
+  --card: #0e1a2f;
+  --line: #1a2a45;
+  --text: #e8eef8;
+  --muted: #98a6bd;
+  --blue: #1f7bff;
+  --blue-soft: #5aa0ff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  line-height: 1.9;
+}
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+
+.wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.center { text-align: center; }
+
+:focus-visible { outline: 3px solid var(--blue-soft); outline-offset: 3px; }
+
+/* ---------- دکمه‌ها ---------- */
+.btn {
+  display: inline-block;
+  padding: .55rem 1.4rem;
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.btn:hover { background: #3a8bff; border-color: #3a8bff; }
+.btn-small { padding: .3rem 1.1rem; }
+.btn-ghost { background: transparent; border-color: #2a4470; }
+.btn-ghost:hover { background: #12213a; border-color: var(--blue); }
+
+/* ---------- منو ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 17, 31, .92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 4.2rem; }
+
+.logo { display: flex; flex-direction: column; line-height: 1.3; }
+.logo strong { font-size: 1.35rem; font-weight: 800; color: var(--blue-soft); }
+.logo small { font-size: .72rem; color: var(--muted); }
+
+.menu { display: flex; align-items: center; gap: 1.6rem; font-size: .92rem; font-weight: 500; }
+.menu a:not(.btn) { padding-block: .3rem; border-bottom: 2px solid transparent; color: var(--muted); }
+.menu a:not(.btn):hover, .menu a.active { color: var(--text); border-color: var(--blue); }
+
+.nav-toggle { display: none; background: none; border: 0; padding: .5rem; cursor: pointer; }
+.nav-toggle span { display: block; width: 24px; height: 2px; margin: 5px 0; background: var(--text); }
+
+/* ---------- هیرو ---------- */
+.hero { position: relative; overflow: hidden; background: #0a1c36; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 5rem 4.5rem;
+}
+.hero-text { max-width: 34rem; }
+.hello { color: var(--blue-soft); font-weight: 500; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.35; margin-block: .3rem 1rem; }
+h1 span { font-size: .6em; font-weight: 700; color: var(--blue-soft); }
+.lead { color: #c3d0e4; max-width: 28rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+
+.avatar {
+  flex: none;
+  width: clamp(11rem, 26vw, 17rem);
+  height: clamp(11rem, 26vw, 17rem);
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  background: #0c1d38;
+}
+.avatar span { font-size: clamp(4rem, 10vw, 7rem); font-weight: 800; color: var(--blue-soft); }
+
+/* عکس دقیقاً داخل دایره می‌نشیند و حرف «ک» وقتی عکس هست پنهان می‌شود */
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+.avatar:has(img) span { display: none; }
+
+/* ---------- بخش‌ها ---------- */
+.section { padding-block: 4.5rem; }
+.section-alt { background: var(--bg-alt); border-block: 1px solid var(--line); }
+
+.eyebrow { color: var(--blue); font-weight: 700; font-size: .85rem; margin-bottom: .4rem; }
+h2 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 800; line-height: 1.5; margin-bottom: 1rem; }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+
+/* درباره */
+.about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: start; }
+.about p { color: var(--muted); }
+
+.ticks { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 1.5rem; list-style: none; padding: 0; margin: 1.5rem 0 0; font-size: .92rem; }
+.ticks li::before { content: "✓"; margin-inline-end: .5rem; color: var(--blue); font-weight: 800; }
+
+.info { padding: 1rem 1.6rem; }
+.info dl { margin: 0; }
+.info dl div { padding-block: .8rem; border-bottom: 1px solid var(--line); }
+.info dl div:last-child { border-bottom: 0; }
+.info dt { font-size: .8rem; color: var(--muted); }
+.info dd { margin: 0; font-weight: 700; }
+
+/* گرید کارت‌ها */
+.grid { display: grid; gap: 1.2rem; margin-top: 2.2rem; }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.skill { padding: 1.4rem; transition: border-color .2s, transform .2s; }
+.skill:hover { border-color: var(--blue); transform: translateY(-3px); }
+.skill .icon { font-family: "Courier New", monospace; font-size: 1.5rem; font-weight: 700; color: var(--blue); direction: ltr; text-align: end; }
+.skill h3 { font-size: 1.05rem; margin-block: .6rem .2rem; }
+.skill p { font-size: .85rem; color: var(--muted); line-height: 1.8; }
+
+.badge {
+  display: inline-block;
+  margin-top: .8rem;
+  padding: 0 .7rem;
+  border: 1px solid var(--blue);
+  border-radius: 99px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--blue-soft);
+}
+.badge.advanced { background: var(--blue); color: #fff; }
+.badge.intermediate { background: #12305c; color: #cfe1ff; }
+.badge.learning { border-style: dashed; }
+
+/* پروژه‌ها */
+.project { overflow: hidden; }
+.thumb { height: 9.5rem; display: grid; place-items: center; background: #12243f; border-bottom: 1px solid var(--line); }
+.thumb span { font-weight: 800; font-size: 1.1rem; color: var(--blue-soft); direction: ltr; }
+.project-link { display: block; }
+.project-link:hover .card { border-color: var(--blue); }
+.project div.body { padding: 1rem 1.2rem 1.2rem; }
+.project h3 { font-size: 1rem; }
+.project p { font-size: .82rem; color: var(--blue-soft); direction: ltr; text-align: start; }
+
+/* دعوت به تماس */
+.cta { padding-block: 4.5rem; text-align: center; background: #0a1c36; border-top: 1px solid var(--line); }
+.cta p { color: #c3d0e4; margin-bottom: 1.5rem; }
+
+/* فوتر */
+.footer { border-top: 1px solid var(--line); background: #060d19; padding-block: 1.4rem; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+.footer p { font-size: .82rem; color: var(--muted); }
+
+/* ---------- موبایل و تبلت ---------- */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .about { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+  .menu {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .2rem;
+    padding: 1rem 1.25rem 1.4rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .menu.open { display: flex; }
+  .menu .btn { text-align: center; margin-top: .6rem; }
+
+  .hero-inner { flex-direction: column-reverse; text-align: center; padding-block: 3rem; }
+  .actions { justify-content: center; }
+  .lead { margin-inline: auto; }
+  .ticks { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  .grid-4, .grid-3 { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
